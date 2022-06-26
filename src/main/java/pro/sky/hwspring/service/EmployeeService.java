@@ -15,13 +15,13 @@ public class EmployeeService {
 
     private final Map<String, Employee> employees = new HashMap<>();
 
-    private String getKey(Employee employee){
-        return employee.getName()+"|" +employee.getSurname();
+    private String getKey(String name, String surname){
+        return name+ "|" + surname;
     }
 
-    public Employee add(String name, String surname) {
-        Employee employee = new Employee(name, surname);
-        String key = getKey(employee);
+    public Employee add(String name, String surname, int department, double salary) {
+        Employee employee = new Employee(name, surname, department, salary);
+        String key = getKey(name, surname);
         if (employees.containsKey(key)){
             throw new EmployeeAlreadyAddedException();
         }
@@ -32,7 +32,7 @@ public class EmployeeService {
     }
 
     public Employee remove(String name, String surname) {
-        String key = getKey(new Employee(name, surname));
+        String key = getKey(name, surname);
         if (!employees.containsKey(key)){
             throw new EmployeeNotFoundException();
         }
@@ -40,11 +40,11 @@ public class EmployeeService {
     }
 
     public Employee find(String name, String surname) {
-        Employee employee = new Employee(name, surname);
-        if (!employees.containsKey(getKey(employee))){
+        String key = getKey(name, surname);
+        if (!employees.containsKey(key)) {
             throw new EmployeeNotFoundException();
         }
-        return employee;
+        return employees.get(key);
     }
 
     public List<Employee> getAll(){
