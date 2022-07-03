@@ -1,8 +1,12 @@
 package pro.sky.hwspring.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.StringUtils;
 
+import java.util.Locale;
 import java.util.Objects;
+
+import static org.apache.commons.lang3.StringUtils.*;
 
 public class Employee {
     @JsonProperty("firstName")
@@ -14,8 +18,8 @@ public class Employee {
     private final double salary;
 
     public Employee(String name, String surname, int department, double salary) {
-        this.name = name;
-        this.surname = surname;
+        this.name = capitalize(name.toLowerCase());
+        this.surname = capitalize(surname.toLowerCase());
         this.department = department;
         this.salary = salary;
     }
