@@ -32,7 +32,8 @@ public class EmployeeService {
             throw new EmployeeAlreadyAddedException();
         }
         if (employees.size()<LIMIT){
-            return employees.put(key, employee);
+            employees.put(key, employee);
+            return employee;
         }
             throw new EmployeeStorageIsFullException();
     }

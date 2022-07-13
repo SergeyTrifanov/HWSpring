@@ -113,7 +113,7 @@ public class DepartmentServiceTest {
         return Stream.of(
                 Arguments.of(1, List.of(
                         new Employee("Василий", "Васильев", 1, 55_000),
-                        new Employee("Андрей", "Андреев", 1, 65))),
+                        new Employee("Андрей", "Андреев", 1, 65_000))),
                 Arguments.of(2, List.of
                 (new Employee("Иван", "Иванов", 2, 45_000),
                         new Employee("Мария", "Иванова", 2, 50_000),
