@@ -75,7 +75,7 @@ public class DepartmentServiceTest {
     @ParameterizedTest
     @MethodSource("EmployeesFromDepartmentParams")
     public void findEmployeesFromDepartmentPositiveTest(int departmentId, List<Employee> expected) {
-        assertThat(departmentService.findEmployeeWithMinSalaryFromDepartment(departmentId)).containsExactlyElementsOf(expected); // яне понимаю почему горит крассным
+        assertThat(departmentService.findEmployeesFromDepartment(departmentId)).containsExactlyElementsOf(expected);
     }
 
     @Test
